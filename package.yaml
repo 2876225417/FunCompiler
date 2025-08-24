@@ -6,18 +6,35 @@ author:         "ppqwqqq"
 github:         "2876225417/FunCompiler"
 
 dependencies:   
-  - base >= 4.7 && < 5
+  - base >= 4.20.0.0 && < 5.0.0.0
 
 library:
   source-dirs: src
+
+  exposed-modules:
+    - FunCompiler.Lexer 
+    - FunCompiler.Parser
+    - FunCompiler.AST
 
 executables:
   FunCompiler-exe:
     main:             Main.hs
     source-dirs:      app
     ghc-options:
-      - -threaded
-      - -rtsopts
-      - -with-rtsopts=-N
+      - -threaded 
+      - -rtsopts 
+      - -with-rtsopts=-N 
     dependencies:
       - FunCompiler
+
+tests:
+  FunCompiler-test:
+    main: Spec.hs 
+    source-dirs: tests 
+    ghc-options:
+      - -threaded 
+      - -rtsopts 
+      - -with-rtsopts=-N 
+    dependencies:
+      - FunCompiler
+      - hspec

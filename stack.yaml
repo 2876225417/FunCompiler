@@ -1,5 +1,4 @@
 
-resolver: lts-22.7
-
+resolver: nightly-2025-08-23
 packages:
   - .
